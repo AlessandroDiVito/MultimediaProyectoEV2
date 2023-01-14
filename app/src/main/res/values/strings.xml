@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ProyectoEV2</string>
+    <string name="introduzca_su_contrase_a">Introduzca su contraseña</string>
+    <string name="login">Login</string>
+    <string name="idioma">Idioma</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="introduzca_su_correo">Introduzca su correo</string>
+    <!-- Strings related to login -->
+    <string name="title_activity_register">Register</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="click_aqu">click aquí</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="seleccionar_idioma">Seleccionar idioma</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
+    <string name="registrate">Registrate</string>
+    <string name="iniciar_con_google">Iniciar con Google</string>
+</resources>
