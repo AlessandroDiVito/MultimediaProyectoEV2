@@ -22,8 +22,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mail=findViewById(R.id.mail);
-        contrasena =findViewById(R.id.contraseña);
+        mail = findViewById(R.id.mail);
+        contrasena = findViewById(R.id.contraseña);
 
         spinner = findViewById(R.id.idiomas);
         Button pantallaregistro = (Button) findViewById(R.id.pantallaregistro);
@@ -35,25 +35,26 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void consultaUsuarioPorMailYPassword(View v) {
+    public void consultaUsuarioPorMailYPassword(View view) {
         RegistroUsuarioSQLite admin = new RegistroUsuarioSQLite(this,
                 "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String eMail = mail.getText().toString();
-        //String password = contraseña.getText().toString();
-        Cursor fila = bd.rawQuery(
-                "select mail,contraseña from UsuarioRegistrado where mail='" + eMail, null);
-        if (fila.moveToFirst()) {
-            mail.setText(fila.getString(0));
-            contrasena.setText(fila.getString(1));
-            Toast.makeText(this, "Correo"+mail.toString()+"Pass"+ contrasena.toString(),
-                    Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Login.this, MainUser.class);
-            startActivity(intent);
-        } else
-            Toast.makeText(this, "Correo o contraseña incorrecta.",
-                    Toast.LENGTH_SHORT).show();
-        bd.close();
+        String password = contrasena.getText().toString();
+
+        if (!eMail.isEmpty() && !password.isEmpty()) {
+            Cursor fila = bd.rawQuery("select mail, contraseña from UsuarioRegistrado where mail='" + eMail + "'"+"and "+"contraseña='"+password+"'", null);
+            if (fila.moveToFirst()) {
+                Intent login = new Intent(Login.this, MainUser.class);
+                startActivity(login);
+                bd.close();
+            } else {
+                Toast.makeText(this, "El email o el usuario es incorrecto", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Introduce un correo y contraseña", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
