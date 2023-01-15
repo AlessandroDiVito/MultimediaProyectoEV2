@@ -80,7 +80,6 @@
         android:layout_width="138dp"
         android:layout_height="52dp"
         android:background="@drawable/boton_sin_fondo"
-        android:onClick="pantallaregistro"
         android:text="@string/registrate"
         android:textColor="#F8DF04"
         android:textSize="20sp"
@@ -106,7 +105,7 @@
         app:layout_constraintVertical_bias="0.782" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/botonLoginGoogle"
         android:layout_width="318dp"
         android:layout_height="43dp"
         android:background="@drawable/boton_google"

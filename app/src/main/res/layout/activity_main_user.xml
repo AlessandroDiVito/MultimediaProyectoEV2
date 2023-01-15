@@ -7,12 +7,11 @@
     android:background="@drawable/_d07b519417576678719336626e7959d"
     tools:context=".MainUser">
 
-
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="273dp" />
+        android:text="Bienvenido"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="104dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
