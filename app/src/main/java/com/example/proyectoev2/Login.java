@@ -96,7 +96,7 @@ public class Login extends AppCompatActivity {
                 startActivity(login);
                 bd.close();
             } else {
-                Toast.makeText(this, "El email o el usuario es incorrecto", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "El email o la contraseña es incorrecta", Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(this, "Introduce un correo y contraseña", Toast.LENGTH_SHORT).show();
