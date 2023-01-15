@@ -43,6 +43,7 @@ public class Login extends AppCompatActivity {
         String password = contrasena.getText().toString();
 
         if (!eMail.isEmpty() && !password.isEmpty()) {
+            // Hay que poner comillas simples para evitar errores y que SQLite capte bien la sentencia
             Cursor fila = bd.rawQuery("select mail, contraseña from UsuarioRegistrado where mail='" + eMail + "'"+"and "+"contraseña='"+password+"'", null);
             if (fila.moveToFirst()) {
                 Intent login = new Intent(Login.this, MainUser.class);
