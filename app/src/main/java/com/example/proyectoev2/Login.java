@@ -15,7 +15,6 @@ import android.widget.Toast;
 public class Login extends AppCompatActivity {
 
     private EditText mail, contrasena;
-    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
