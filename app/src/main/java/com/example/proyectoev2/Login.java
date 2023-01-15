@@ -25,7 +25,6 @@ public class Login extends AppCompatActivity {
         mail = findViewById(R.id.mail);
         contrasena = findViewById(R.id.contraseña);
 
-        spinner = findViewById(R.id.idiomas);
         Button pantallaregistro = (Button) findViewById(R.id.pantallaregistro);
 
 
