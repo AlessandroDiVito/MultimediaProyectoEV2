@@ -80,7 +80,6 @@
         android:layout_width="147dp"
         android:layout_height="50dp"
         android:background="@drawable/boton_redondo"
-        android:onClick="volver"
         android:text="Volver"
 
         android:textColor="@color/negror"
