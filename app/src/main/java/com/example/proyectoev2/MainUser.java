@@ -20,6 +20,10 @@ public class MainUser extends AppCompatActivity {
     GoogleSignInClient gsc;
     Button cerrarSesion;
 
+    Button listarAlbumes;
+
+    Button añadirAlbum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,24 @@ public class MainUser extends AppCompatActivity {
             public void onClick(View v) {
                 cerrarSesion();
             }
+        });
+
+        listarAlbumes = findViewById(R.id.listarAlbumes);
+
+        listarAlbumes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainUser.this, ListaAlbumes.class));
+            }
+        });
+
+        añadirAlbum = findViewById(R.id.añadirAlbum);
+
+        añadirAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainUser.this, AnadirAlbum.class);
+                startActivity(intent);            }
         });
     }
 

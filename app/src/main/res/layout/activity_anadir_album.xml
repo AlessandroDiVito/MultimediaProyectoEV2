@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/_d07b519417576678719336626e7959d"
+    tools:context=".AnadirAlbum">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imagenAlbum"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:onClick="seleccionarImagen"
+            android:src="@drawable/anadirfoto" />
+        <EditText
+            android:id="@+id/nombreAlbum"
+            android:layout_below="@id/imagenAlbum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Titulo del Album"
+            android:layout_centerHorizontal="true"
+            android:ems="10"/>
+
+        <EditText
+            android:id="@+id/autor"
+            android:layout_below="@id/nombreAlbum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Autor"
+            android:layout_centerHorizontal="true"
+            android:ems="10"/>
+
+        <EditText
+            android:id="@+id/discografia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/autor"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="Discografia" />
+
+        <Button
+            android:id="@+id/botonAñadir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/discografia"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:minWidth="160dp"
+            android:text="Añadir" />
+
+    </RelativeLayout>
+
+</ScrollView>
