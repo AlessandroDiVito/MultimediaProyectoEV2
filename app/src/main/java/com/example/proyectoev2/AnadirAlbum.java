@@ -6,7 +6,9 @@ import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -49,8 +52,9 @@ public class AnadirAlbum extends AppCompatActivity {
         imagenAlbum.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               ActivityCompat.requestPermissions(AnadirAlbum.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                       REQUEST_CODE_GALLERY );
+               cargarImagen();
+               //ActivityCompat.requestPermissions(AnadirAlbum.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+               //        REQUEST_CODE_GALLERY );
            }
         });
 
@@ -84,20 +88,40 @@ public class AnadirAlbum extends AppCompatActivity {
         return  byteArray;
     }
 
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_GALLERY){
-            if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                galleryIntent.setType("imager/*");
-                startActivityForResult(galleryIntent, REQUEST_CODE_GALLERY);
-            }
-            else {
-                Toast.makeText(this,"No tiene permisos para acceder a la carpeta de imagenes", Toast.LENGTH_SHORT).show();
-            }
-            return;
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    public void cargarImagen(){
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(intent.createChooser(intent,"Seleccione la Aplicación"),10);
     }
+
+
+
+    //@Override
+    //protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    //    super.onActivityResult(requestCode, resultCode, data);
+    //    if (requestCode==RESULT_OK){
+    //        Uri path=data.getData();
+    //        imagenAlbum.setImageURI(path);
+    //    }
+    //}
+
+
+
+
+
+    //@Override
+    //public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    //    if (requestCode == REQUEST_CODE_GALLERY){
+    //        if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+    //            Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+    //            galleryIntent.setType("imager/*");
+    //            startActivityForResult(galleryIntent, REQUEST_CODE_GALLERY);
+    //        }
+    //        else {
+    //            Toast.makeText(this,"No tiene permisos para acceder a la carpeta de imagenes", Toast.LENGTH_SHORT).show();
+    //        }
+    //        return;
+    //    }
+    //    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    //}
 }

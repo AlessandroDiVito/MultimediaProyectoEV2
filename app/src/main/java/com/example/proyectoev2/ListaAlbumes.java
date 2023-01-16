@@ -64,8 +64,6 @@ public class ListaAlbumes extends AppCompatActivity {
                 dialog.setItems(items, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        cargarImagen();
-
                         if (which == 0){
                           Cursor c = AnadirAlbum.SQLiteAlbumes.getData("SELECT id FROM AlbumesRegistrados");
                           ArrayList<Integer> arraID = new ArrayList<Integer>();
@@ -87,18 +85,5 @@ public class ListaAlbumes extends AppCompatActivity {
 
 
 
-    public void cargarImagen(){
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/");
-        startActivityForResult(intent.createChooser(intent,"Seleccione la Aplicación"),10);
-    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==RESULT_OK){
-            Uri path=data.getData();
-            imagenViewIcono.setImageURI(path);
-        }
-    }
 }
